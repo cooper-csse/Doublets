@@ -20,7 +20,7 @@ public class LinkTest {
 	private static double sPoints = 0;
 	
 	/**
-	 * Test method for {@link Link#getCandidates(java.lang.String)}.
+	 * Test method for {@link Links#getCandidates(java.lang.String)}.
 	 * @throws FileNotFoundException 
 	 */
 	@Test
