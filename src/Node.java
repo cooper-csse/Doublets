@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -35,13 +34,7 @@ public class Node {
 	}
 
 	public Set<String> values() {
-		HashSet<String> set = new HashSet<>();
-		Iterator iterator = this.children();
-		while (iterator.hasNext()) {
-			Node node = (Node) iterator.next();
-			set.add(node.word);
-		}
-		return set;
+		return this.children.keySet();
 	}
 
 	public String toString() {
