@@ -19,6 +19,7 @@ public class Links implements LinksInterface {
 				File f = new File(filename);
 				sc = new Scanner(f);
 			} catch (FileNotFoundException e) {
+				Links.links.remove(filename);
 				e.printStackTrace();
 			}
 			while (sc.hasNext()) {
@@ -66,7 +67,7 @@ public class Links implements LinksInterface {
 	}
 
 	private int wordLength(String word) {
-		return Math.min(Links.maxWordLength, word.length() - 1);
+		return Math.min(Links.maxWordLength, word.length()) - 1;
 	}
 
 	public String toString() {
