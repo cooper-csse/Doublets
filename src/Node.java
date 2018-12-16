@@ -12,6 +12,11 @@ public class Node {
 		this.children = new HashMap<>();
 	}
 
+	public Node() {
+		this.word = null;
+		this.children = new HashMap<>();
+	}
+
 	public void addChild(Node node) {
 		this.children.put(node.word, node);
 		this.size++;
