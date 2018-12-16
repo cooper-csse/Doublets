@@ -8,11 +8,11 @@ public class Chain {
 	private Chain next;
 	private Chain head;
 	
-	public Chain(){
-		value = null;
-		prev = null;
-		next = null;
-		head = this;
+	public Chain() {
+		this.value = null;
+		this.prev = null;
+		this.next = null;
+		this.head = this;
 	}
 	
 	
@@ -28,11 +28,10 @@ public class Chain {
 
 	public boolean contains(String word) {
 		Iterator iterator = this.iterator();
-		while (iterator.hasNext()){
-			if(iterator.next() == word)
+		while (iterator.hasNext()) {
+			if (iterator.next() == word)
 				return true;
 		}
-			
 		return false;
 	}
 
@@ -51,12 +50,12 @@ public class Chain {
 	class ChainIterator implements Iterator<String> {
 		Chain current;
 		
-		public ChainIterator (Chain chain){
+		public ChainIterator(Chain chain) {
 			this.current = chain.head;
 		}
 		
 		@Override
-		public boolean hasNext () {
+		public boolean hasNext() {
 			return this.current.next != null;
 		}
 		
