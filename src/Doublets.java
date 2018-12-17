@@ -1,6 +1,4 @@
-import java.io.FileNotFoundException;
 import java.util.HashSet;
-import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -8,7 +6,7 @@ import java.util.Set;
  */
 public class Doublets {
 	private LinksInterface links;
-	
+
 	public Doublets(LinksInterface links) {
 		this.links = links;
 	}
@@ -18,7 +16,29 @@ public class Doublets {
 	}
 
 	public Chain findChain(String start, String end, ChainManager manager) {
-		// TODO: implement the general algorithm to search for doublets.
+		if (start.length() == end.length()) {
+			HashSet<String> checked = new HashSet<>();
+			manager.add(new Chain().addLast(start));
+			checked.add(start);
+			int maxIterations = 1000;
+			for (int i = 0; i < maxIterations; i++) {
+				int chains = manager.maxSize();
+				for (int c = 0; c < chains; c++) {
+					Chain current = manager.next();
+					if (current == null) break;
+					Set<String> words = links.getCandidates(current.getLast());
+					if (words == null) continue;
+					checked.add(current.getLast());
+					for (String word : words) {
+						Chain chain = current.addLast(word);
+						if (word.equals(end))
+							return chain;
+						if (!checked.contains(word))
+							manager.add(current.addLast(word));
+					}
+				}
+			}
+		}
 		return null;
 	}
 

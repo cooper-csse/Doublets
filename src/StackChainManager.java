@@ -15,7 +15,15 @@ public class StackChainManager extends ChainManager {
 
 	@Override
 	public Chain next() {
-		return this.stack.size() == 0 ? null : this.stack.pop();
+		if (this.stack.size() != 0) {
+			this.incrementNumNexts();
+			return this.stack.pop();
+		}
+		return null;
+	}
+
+	public int size() {
+		return this.stack.size();
 	}
 
 	@Override

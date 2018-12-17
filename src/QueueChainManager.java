@@ -16,9 +16,11 @@ public class QueueChainManager extends ChainManager {
 
 	@Override
 	public Chain next() {
-		if (this.queue.size() == 0)
-			return null;
-		return this.queue.size() == 0 ? null : this.queue.removeFirst();
+		if (this.queue.size() != 0) {
+			this.incrementNumNexts();
+			return this.queue.removeFirst();
+		}
+		return null;
 	}
 
 	@Override
