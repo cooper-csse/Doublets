@@ -25,7 +25,7 @@ public class Doublets {
 			start = sc.next();
 			System.out.print("Enter ending word: ");
 			end = sc.next();
-			System.out.print("Enter chain manager (s: stack, q: queue, x: exit)");
+			System.out.print("Enter chain manager (s: stack, q: queue, p: priority queue, x: exit)");
 			managerType = sc.next();
 			if (link.getCandidates(start) != null && link.getCandidates(end) != null) {
 				if (managerType.equals("s")) {
@@ -34,7 +34,10 @@ public class Doublets {
 				} else if (managerType.equals("q")) {
 					manager = new QueueChainManager();
 					
-				} else
+				} else if (managerType.equals("p")){
+					manager = new PriorityQueueChainManager(end);
+					
+				}else
 					break;
 				chain = doublets.findChain(start, end, manager);
 				if (chain != null) {
