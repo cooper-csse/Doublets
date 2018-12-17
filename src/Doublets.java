@@ -17,28 +17,35 @@ public class Doublets {
 		System.out.println("Welcome to Doublets, a game of \"verbal torture.\"");
 		String managerType, start, end;
 		Chain chain;
+		System.out.print("Loading dictionary... ");
 		Links link = new Links("english.cleaned.all.35.txt");
+		System.out.println("Done!");
 		Doublets doublets = new Doublets(link);
 		ChainManager manager;
-		do {
+		mainLoop: while (true) {
 			System.out.print("Enter starting word: ");
 			start = sc.next();
 			System.out.print("Enter ending word: ");
 			end = sc.next();
-			System.out.print("Enter chain manager (s: stack, q: queue, p: priority queue, x: exit)");
-			managerType = sc.next();
-			if (link.getCandidates(start) != null && link.getCandidates(end) != null) {
-				if (managerType.equals("s")) {
-					manager = new StackChainManager();
-					
-				} else if (managerType.equals("q")) {
-					manager = new QueueChainManager();
-					
-				} else if (managerType.equals("p")){
-					manager = new PriorityQueueChainManager(end);
-					
-				}else
-					break;
+			if (link.getCandidates(start) == null)
+				System.out.println("The word " + start + " is not valid. Please try again.");
+			else if (link.getCandidates(end) == null)
+				System.out.println("The word " + end + " is not valid. Please try again.");
+			else {
+				System.out.print("Enter chain manager (s: stack, q: queue, p: priority queue, x: exit): ");
+				switch ( sc.next()) {
+					case "x":
+						break mainLoop;
+					case "s":
+						manager = new StackChainManager();
+						break;
+					case "p":
+						manager = new PriorityQueueChainManager(end);
+						break;
+					default:
+						manager = new QueueChainManager();
+						break;
+				}
 				chain = doublets.findChain(start, end, manager);
 				if (chain != null) {
 					System.out.println("Chain: " + chain);
@@ -46,16 +53,9 @@ public class Doublets {
 					System.out.println("Candidates: " + link.getCandidates(start).size());
 					System.out.println("Max size: " + manager.maxSize());
 				} else
-					System.out.println("No doublet chain exsists from " + start + " to " + end + ".");
-				
-			} else {
-				if (link.getCandidates(start) == null)
-					System.out.println("The word " + start + " is not valid. Please try again.");
-				else
-					System.out.println("The word " + end + " is not valid. Please try again.");
-
+					System.out.println("No doublet chain exists from " + start + " to " + end + ".");
 			}
-		} while (managerType.equals("s") || managerType.equals("q"));
+		}
 		System.out.println("Goodbye!");
 	}
 
