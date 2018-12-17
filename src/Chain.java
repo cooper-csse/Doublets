@@ -1,17 +1,16 @@
 import java.util.Iterator;
+import java.util.Stack;
 
 public class Chain {
 	
 	private int length = 0;
 	private String value;
 	private Chain prev;
-	private Chain next;
 	private Chain head;
 	
 	public Chain() {
 		this.value = null;
 		this.prev = null;
-		this.next = null;
 		this.head = this;
 	}
 	
@@ -21,7 +20,6 @@ public class Chain {
 		chain.head = this.head;
 		chain.value = word;
 		chain.length = this.length + 1;
-		this.next = chain;
 		chain.prev = this;
 		return chain;
 	}
@@ -46,23 +44,40 @@ public class Chain {
 	public int length() {
 		return this.length;
 	}
+
+	public String toString() {
+		String output = "";
+		Iterator<String> itr = this.iterator();
+		while (itr.hasNext()) {
+			output += itr.next() + ", ";
+		}
+		return "[" + output.substring(0, Math.max(0, output.length() - 2)) + "]";
+	}
 	
 	class ChainIterator implements Iterator<String> {
-		Chain current;
-		
+		Stack<Chain> stack;
+
 		public ChainIterator(Chain chain) {
-			this.current = chain.head;
+			this.stack = new Stack<>();
+			Chain current = chain;
+			if (chain.length != 0) {
+				while (current.prev != null) {
+					stack.push(current);
+					current = current.prev;
+				}
+			} else {
+				this.stack.push(chain);
+			}
 		}
-		
+
 		@Override
 		public boolean hasNext() {
-			return this.current.next != null;
+			return this.stack.size() != 0;
 		}
 		
 		@Override
 		public String next() {
-			this.current = this.current.next;
-			return this.current.value;
+			return this.stack.pop().value;
 		}
 	}
 }
