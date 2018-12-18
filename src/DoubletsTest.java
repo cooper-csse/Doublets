@@ -33,7 +33,7 @@ public class DoubletsTest {
 	private static LinksInterface testGraph;
 	Doublets doublets;
 
-	private boolean useDeafultLimiter = false;
+	private boolean useDefaultLimiter = false;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -76,7 +76,7 @@ public class DoubletsTest {
 		assertEquals("99000", itr.next());
 		assertFalse(itr.hasNext());
 
-		if (useDeafultLimiter) {
+		if (useDefaultLimiter) {
 			assertEquals(17, manager.maxSize());
 			assertEquals(3, manager.getNumberOfNexts());
 		}
@@ -96,7 +96,7 @@ public class DoubletsTest {
 		assertEquals("99991", itr.next());
 		assertFalse(itr.hasNext());
 
-		if (useDeafultLimiter) {
+		if (useDefaultLimiter) {
 			assertEquals(41, manager.maxSize());
 			assertEquals(14, manager.getNumberOfNexts());
 		}
@@ -115,7 +115,7 @@ public class DoubletsTest {
 		assertEquals("71210", itr.next());
 		assertFalse(itr.hasNext());
 
-		if (useDeafultLimiter) {
+		if (useDefaultLimiter) {
 			assertEquals(41, manager.maxSize());
 			assertEquals(22044, manager.getNumberOfNexts());
 		}
@@ -132,7 +132,7 @@ public class DoubletsTest {
 		assertEquals("11000", itr.next());
 		assertFalse(itr.hasNext());
 
-		if (useDeafultLimiter) {
+		if (useDefaultLimiter) {
 			assertEquals(81, manager.maxSize());
 			assertEquals(11, manager.getNumberOfNexts());
 		}
@@ -149,7 +149,7 @@ public class DoubletsTest {
 		assertEquals("23000", itr.next());
 		assertFalse(itr.hasNext());
 
-		if (useDeafultLimiter) {
+		if (useDefaultLimiter) {
 			assertEquals(169, manager.maxSize());
 			assertEquals(22, manager.getNumberOfNexts());
 		}
@@ -169,7 +169,7 @@ public class DoubletsTest {
 		assertEquals("93821", itr.next());
 		assertFalse(itr.hasNext());
 
-		if (useDeafultLimiter) {
+		if (useDefaultLimiter) {
 			assertEquals(59049, manager.maxSize());
 			assertEquals(61904, manager.getNumberOfNexts());
 		}
@@ -182,7 +182,7 @@ public class DoubletsTest {
 		ChainManager manager = new StackChainManager();
 		Chain chain = doublets.findChain("hi", "bye", manager);
 		assertNull(chain);
-		if (useDeafultLimiter) {
+		if (useDefaultLimiter) {
 			assertEquals(0, manager.maxSize());
 			assertEquals(0, manager.getNumberOfNexts());
 		}
@@ -196,7 +196,7 @@ public class DoubletsTest {
 		Chain chain = doublets.findChain("14500", "22222", manager);
 		assertNull(chain);
 
-		if (useDeafultLimiter) {
+		if (useDefaultLimiter) {
 			assertEquals(17, manager.maxSize());
 			assertEquals(91, manager.getNumberOfNexts());
 		}

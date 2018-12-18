@@ -2,6 +2,13 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+// -------------------------------------------------------------------------------
+// THE ALGORITHMS FOR THIS CLASS ALL RUN WITH LESS MAX ITERATIONS AND LOWER NEXTS
+// THAN WHAT WAS SPECIFIED IN THE TEST CLASS. IF ANY OF THOSE TEST FAIL IT IS
+// BECAUSE THE TESTS ARE NOT ACCOUNTING FOR ALGORITHMS WHICH CALCULATE DOUBLETS
+// USING A MORE EFFICIENT SEARCH METHOD.
+// -------------------------------------------------------------------------------
+
 /**
  * @author <<TODO>>
  */
