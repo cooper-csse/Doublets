@@ -18,8 +18,11 @@ public class Doublets {
 		String managerType, start, end;
 		Chain chain;
 		System.out.print("Loading dictionary... ");
+		double elapsedTime;
+		double startTime = System.currentTimeMillis();
 		Links link = new Links("english.cleaned.all.35.txt");
-		System.out.println("Done!");
+		elapsedTime = (System.currentTimeMillis() - startTime);
+		System.out.println("Done! (" + elapsedTime/1000.0 + "s)");
 		Doublets doublets = new Doublets(link);
 		ChainManager manager;
 		mainLoop: while (true) {
@@ -46,7 +49,9 @@ public class Doublets {
 						manager = new QueueChainManager();
 						break;
 				}
+				startTime = System.currentTimeMillis();
 				chain = doublets.findChain(start, end, manager);
+				elapsedTime = (System.currentTimeMillis() - startTime);
 				if (chain != null) {
 					System.out.println("Chain: " + chain);
 					System.out.println("Length: " + chain.length());
@@ -54,6 +59,7 @@ public class Doublets {
 					System.out.println("Max size: " + manager.maxSize());
 				} else
 					System.out.println("No doublet chain exists from " + start + " to " + end + ".");
+				System.out.println("Search completed in: " + elapsedTime + "ms");
 			}
 		}
 		System.out.println("Goodbye!");
