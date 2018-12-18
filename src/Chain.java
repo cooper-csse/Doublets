@@ -16,6 +16,7 @@ public class Chain {
 	
 	
 	public Chain addLast(String word) {
+		// Create new chain and set it's previous to our current chain
 		Chain chain = new Chain();
 		chain.head = this.head;
 		chain.value = word;
@@ -25,6 +26,7 @@ public class Chain {
 	}
 
 	public boolean contains(String word) {
+		// Run through the chain and see if it contains the word
 		Iterator iterator = this.iterator();
 		while (iterator.hasNext()) {
 			if (iterator.next() == word)
@@ -46,6 +48,7 @@ public class Chain {
 	}
 
 	public String toString() {
+		// Create a prettified output of the chain
 		String output = "";
 		Iterator<String> itr = this.iterator();
 		while (itr.hasNext()) {
@@ -61,6 +64,7 @@ public class Chain {
 			this.stack = new Stack<>();
 			Chain current = chain;
 			if (chain.length != 0) {
+				// Run through the chain backwards adding to a stack
 				while (current.prev != null) {
 					stack.push(current);
 					current = current.prev;

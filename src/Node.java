@@ -18,6 +18,7 @@ public class Node {
 	}
 
 	public void addChild(Node node) {
+		// Add the child to this nodes HashMap of children
 		this.children.put(node.word, node);
 		this.size++;
 	}

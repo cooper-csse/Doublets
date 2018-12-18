@@ -15,6 +15,7 @@ public class StackChainManager extends ChainManager {
 
 	@Override
 	public Chain next() {
+		// Return next chain in the stack unless the stack is empty
 		if (this.stack.size() != 0) {
 			this.incrementNumNexts();
 			return this.stack.pop();
