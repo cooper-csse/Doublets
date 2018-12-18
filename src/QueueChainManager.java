@@ -1,5 +1,8 @@
 import java.util.LinkedList;
 
+/**
+ * @author andersc7, mcknigaa
+ */
 public class QueueChainManager extends ChainManager {
 	private LinkedList <Chain> queue;
 	

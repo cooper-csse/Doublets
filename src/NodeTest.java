@@ -2,6 +2,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * @author andersc7, mcknigaa
+ */
 @org.junit.FixMethodOrder(org.junit.runners.MethodSorters.NAME_ASCENDING)
 public class NodeTest {
 	private boolean enable95Percent = false;

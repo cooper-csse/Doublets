@@ -1,5 +1,8 @@
 import java.util.Stack;
 
+/**
+ * @author andersc7, mcknigaa
+ */
 public class StackChainManager extends ChainManager {
 	private Stack<Chain> stack;
 

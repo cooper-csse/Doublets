@@ -10,7 +10,7 @@ import java.util.Set;
 // -------------------------------------------------------------------------------
 
 /**
- * @author <<TODO>>
+ * @author andersc7, mcknigaa
  */
 public class Doublets {
 	private LinksInterface links;

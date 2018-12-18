@@ -1,5 +1,8 @@
 import java.util.PriorityQueue;
 
+/**
+ * @author andersc7, mcknigaa
+ */
 public class PriorityQueueChainManager extends ChainManager {
 	private PriorityQueue<Entry> queue;
 	private String end;

@@ -2,6 +2,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+/**
+ * @author andersc7, mcknigaa
+ */
 public class Node {
 	public String word;
 	private HashMap<String, Node> children;

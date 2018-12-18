@@ -2,6 +2,9 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
+/**
+ * @author andersc7, mcknigaa
+ */
 public class ChainManagerTest {
 	Chain chain1 = new Chain();
 	Chain chain2 = new Chain();

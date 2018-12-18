@@ -1,6 +1,9 @@
 import java.util.Iterator;
 import java.util.Stack;
 
+/**
+ * @author andersc7, mcknigaa
+ */
 public class Chain {
 	
 	private int length = 0;

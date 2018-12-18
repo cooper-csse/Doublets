@@ -2,6 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * @author andersc7, mcknigaa
+ */
 public class Links implements LinksInterface {
 	private static HashMap<String, Links> links = new HashMap<>();
 	private static int maxWordLength = 18;
